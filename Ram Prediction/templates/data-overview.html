@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Overview</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        th, td {
+            vertical-align: middle !important;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="container mt-5">
+
+    <h2 class="text-center mb-4">📂 Data Overview</h2>
+
+    <h4>🔍 First 10 Rows of the Dataset:</h4>
+    <div class="table-responsive mb-4">
+        {{ head_table | safe }}
+    </div>
+
+    <h4>📊 Descriptive Statistics:</h4>
+    <div class="table-responsive mb-4">
+        {{ table | safe }}
+    </div>
+
+    <h4>📦 Boxplot of Numerical Features:</h4>
+    <div class="text-center mb-4">
+        <img src="{{ url_for('static', filename='images/boxplot.png') }}" alt="Boxplot" class="img-fluid rounded shadow-sm">
+    </div>
+
+    <h4>📈 Distributions:</h4>
+    <div class="row text-center">
+        <div class="col-md-4 mb-4">
+            <img src="{{ url_for('static', filename='images/dist_price.png') }}" alt="Price Distribution" class="img-fluid rounded shadow-sm">
+            <p class="mt-2"><strong>Price</strong></p>
+        </div>
+        <div class="col-md-4 mb-4">
+            <img src="{{ url_for('static', filename='images/dist_speed.png') }}" alt="Speed Distribution" class="img-fluid rounded shadow-sm">
+            <p class="mt-2"><strong>Speed</strong></p>
+        </div>
+        <div class="col-md-4 mb-4">
+            <img src="{{ url_for('static', filename='images/dist_ram size.png') }}" alt="RAM Size Distribution" class="img-fluid rounded shadow-sm">
+            <p class="mt-2"><strong>RAM Size</strong></p>
+        </div>
+    </div>
+
+    <h4>🏷️ Brand Frequency (Bar Chart):</h4>
+    <div class="text-center mb-4">
+        <img src="{{ url_for('static', filename='images/brand_freq.png') }}" alt="Brand Frequency" class="img-fluid rounded shadow-sm">
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="/modelresults" class="btn btn-primary">View Model Results</a>
+    </div>
+
+</body>
+</html>
